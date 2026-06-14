@@ -21,6 +21,10 @@ elif [ "$1" == "structure" ]; then
 elif [ "$1" == "clear_data" ]; then
     rm ./data/data.csv
     rm ./data/report.html
+elif [ "$1" == "inside_generator" ]; then
+    docker run --rm -v "/$(pwd)/data:/data" generator-app ls -la /data # Источник https://stackoverflow.com/questions/41485217/mount-current-directory-as-a-volume-in-docker-on-windows-10
+elif [ "$1" == "inside_reporter" ]; then
+    docker run --rm -v "/$(pwd)/data:data" analyze-app ls -la /data # (ibid.)
 else
     echo "Вы можете вводить только 'build_generator', 'run_generator', 'create_local_data'"
 fi
