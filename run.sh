@@ -16,7 +16,11 @@ elif [ "$1" == "run_reporter" ]; then
     echo "Запуск контейнера аналитика..."
     docker run --rm -v "/$(pwd)/data:/data" analyze-app
 elif [ "$1" == "structure" ]; then
-    find . -not -path '*/.*' | sed -e "s/[^-][^\/]*\// |/g" -e "s/|\([^ ]\)/├── \1/" 
+    echo "Структура проекта в текущей директории"
+    tree -d /proc/self/ # Источник https://stackoverflow.com/questions/3455625/linux-command-to-print-directory-structure-in-the-form-of-a-tree 
+elif [ "$1" == "clear_data" ]; then
+    rm ./data/data.csv
+    rm ./data/report.html
 else
     echo "Вы можете вводить только 'build_generator', 'run_generator', 'create_local_data'"
 fi
