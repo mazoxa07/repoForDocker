@@ -9,3 +9,6 @@
         "https://huecker.io"
     ]
 }
+
+Также для работы команды structure требуется установить tree, если он не установлен
+Решение проблемы описано в статье https://superuser.com/questions/531592/how-to-add-the-tree-command-to-git-bash-in-windows
